@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Delights - Toko Kue & Bakery Premium</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* RESET & VARIABLE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-color: #e85d04; /* Warm orange/accent */
+            --pink-accent: #ff85a1;    /* Soft bakery pink */
+            --bg-cream: #fff0f5;       /* Warm background */
+            --text-dark: #2b2d42;
+            --text-light: #6c757d;
+        }
+
+        body {
+            background-color: #fafafa;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: #dc2f02;
+            transform: translateY(-2px);
+        }
+
+        /* FEATURES / KEUNGGULAN */
+        .features {
+            max-width: 1200px;
+            margin: 4rem auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .feature-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .feature-box i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* KATALOG SECTION */
+        .catalog {
+            background-color: var(--bg-cream);
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        .product-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .product-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .btn-wa {
+            background-color: #25d366;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; } /* Bisa ditambahkan Javascript Hamburgermenu nanti */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">✨ Sweet Delights</a>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#keunggulan">Tentang</a></li>
+                <li><a href="#katalog">Katalog Kue</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <h1>Kelezatan Autentik Di Setiap Gigitan</h1>
+        <p>Dibuat dengan bahan-bahan premium pilihan tanpa pengawet. Segar dipanggang setiap hari untuk momen spesial Anda.</p>
+        <a href="#katalog" class="btn-primary"><i class="fa-solid fa-cake-candles"></i> Lihat Katalog Produk</a>
+    </section>
+
+    <!-- KEUNGGULAN (Membangun Kepercayaan) -->
+    <section class="features" id="keunggulan">
+        <div class="feature-box">
+            <i class="fa-solid fa-certificate"></i>
+            <h3>100% Halal & Premium</h3>
+            <p>Menggunakan bahan berkualitas tinggi yang terjamin kehalalannya.</p>
+        </div>
+        <div class="feature-box">
+            <i class="fa-solid fa-fire"></i>
+            <h3>Freshly Baked</h3>
+            <p>Kue dipanggang setiap hari sehingga tekstur dan rasa selalu terjaga.</p>
+        </div>
+        <div class="feature-box">
+            <i class="fa-solid fa-truck-fast"></i>
+            <h3>Pengiriman Aman</h3>
+            <p>Dikemas secara rapi & aman hingga sampai ke pintu rumah Anda.</p>
+        </div>
+    </section>
+
+    <!-- KATALOG PRODUK -->
+    <section class="catalog" id="katalog">
+        <h2 class="section-title">Katalog Produk Pilihan</h2>
+        <p class="section-subtitle">Pilih kue favoritmu dan pesan langsung via WhatsApp</p>
+
+        <div class="product-grid">
+            
+            <!-- Produk 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80" alt="Chocolate Fudge Cake" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Chocolate Fudge Cake</h3>
+                    <p class="product-desc">Kue cokelat lembut berlapis ganache cokelat belgian premium.</p>
+                    <div class="product-bottom">
+                        <span class="price">Rp 180.000</span>
+                        <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20pesan%20Chocolate%20Fudge%20Cake" class="btn-wa" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> Pesan
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produk 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=500&q=80" alt="Strawberry Shortcake" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Strawberry Shortcake</h3>
+                    <p class="product-desc">Sponge cake ringan dengan whipped cream manis sedang dan stroberi segar.</p>
+                    <div class="product-bottom">
+                        <span class="price">Rp 165.000</span>
+                        <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20pesan%20Strawberry%20Shortcake" class="btn-wa" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> Pesan
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produk 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80" alt="Artisan Croissant" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Butter Croissant (Box)</h3>
+                    <p class="product-desc">Paket isi 4 croissant renyah beraroma butter Prancis asli.</p>
+                    <div class="product-bottom">
+                        <span class="price">Rp 85.000</span>
+                        <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20pesan%20Butter%20Croissant" class="btn-wa" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> Pesan
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produk 4 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=500&q=80" alt="Assorted Cookies" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Choco Chip Cookies</h3>
+                    <p class="product-desc">Kue kering renyah dengan lelehan chocolate chip melimpah di dalamnya.</p>
+                    <div class="product-bottom">
+                        <span class="price">Rp 60.000</span>
+                        <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20pesan%20Choco%20Chip%20Cookies" class="btn-wa" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> Pesan
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER / KONTAK -->
+    <footer id="kontak">
+        <h3>Sweet Delights Bakery</h3>
+        <p>Jl. Mawar Indah No. 12, Jakarta | Buka Setiap Hari: 08.00 - 20.00 WIB</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem; color: #aaa;">&copy; 2026 Sweet Delights. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
